@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from flask import Flask
 from elasticsearch import Elasticsearch
 from flask import jsonify
@@ -13,7 +14,7 @@ def welcome():
 
 @app.route('/jobid/<int:id>')
 def search_byid(id):
-        es = Elasticsearch([{'host': '192.168.0.248', 'port': 9200}])
+        es = Elasticsearch([{'host': 'jenkins-elasticsearch', 'port': 9200}])
 	a=es.search(index='logstash',body={
 					"query": {
 						"bool": {
@@ -28,7 +29,7 @@ def search_byid(id):
 
 @app.route('/jobdate/<datetime>')
 def search_bydatetime(datetime):
-        es = Elasticsearch([{'host': '192.168.0.248', 'port': 9200}])
+        es = Elasticsearch([{'host': 'jenkins-elasticsearch', 'port': 9200}])
         a=es.search(index='logstash',body={
                                         "query": {
                                                 "bool": {
