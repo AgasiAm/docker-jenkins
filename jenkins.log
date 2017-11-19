@@ -1,0 +1,310 @@
+Running from: /usr/share/jenkins/jenkins.war
+Nov 19, 2017 11:18:08 AM Main deleteWinstoneTempContents
+WARNING: Failed to delete the temporary Winstone file /tmp/winstone/jenkins.war
+Nov 19, 2017 11:18:08 AM org.eclipse.jetty.util.log.Log initialized
+INFO: Logging initialized @439ms to org.eclipse.jetty.util.log.JavaUtilLog
+Nov 19, 2017 11:18:08 AM winstone.Logger logInternal
+INFO: Beginning extraction from war file
+Nov 19, 2017 11:18:09 AM org.eclipse.jetty.server.handler.ContextHandler setContextPath
+WARNING: Empty contextPath
+Nov 19, 2017 11:18:09 AM org.eclipse.jetty.server.Server doStart
+INFO: jetty-9.4.z-SNAPSHOT
+Nov 19, 2017 11:18:10 AM org.eclipse.jetty.webapp.StandardDescriptorProcessor visitServlet
+INFO: NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+Nov 19, 2017 11:18:10 AM org.eclipse.jetty.server.session.DefaultSessionIdManager doStart
+INFO: DefaultSessionIdManager workerName=node0
+Nov 19, 2017 11:18:10 AM org.eclipse.jetty.server.session.DefaultSessionIdManager doStart
+INFO: No SessionScavenger set, using defaults
+Nov 19, 2017 11:18:10 AM org.eclipse.jetty.server.session.HouseKeeper startScavenging
+INFO: Scavenging every 600000ms
+Jenkins home directory: /var/jenkins_home found at: EnvVars.masterEnvVars.get("JENKINS_HOME")
+Nov 19, 2017 11:18:10 AM org.eclipse.jetty.server.handler.ContextHandler doStart
+INFO: Started w.@7651218e{/,file:///var/cache/jenkins/war/,AVAILABLE}{/var/cache/jenkins/war}
+Nov 19, 2017 11:18:10 AM org.eclipse.jetty.server.AbstractConnector doStart
+INFO: Started ServerConnector@757d6814{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+Nov 19, 2017 11:18:10 AM org.eclipse.jetty.server.Server doStart
+INFO: Started @2922ms
+Nov 19, 2017 11:18:10 AM winstone.Logger logInternal
+INFO: Winstone Servlet Engine v4.0 running: controlPort=disabled
+Nov 19, 2017 11:18:11 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Started initialization
+Nov 19, 2017 11:18:12 AM hudson.ClassicPluginStrategy createClassJarFromWebInfClasses
+WARNING: Created /var/jenkins_home/plugins/jsch/WEB-INF/lib/classes.jar; update plugin to a version created with a newer harness
+Nov 19, 2017 11:18:13 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Listed all plugins
+Nov 19, 2017 11:18:14 AM jenkins.InitReactorRunner$1 onTaskFailed
+SEVERE: Failed Loading plugin Autofavorite for Blue Ocean v1.1.0 (blueocean-autofavorite)
+java.io.IOException: Autofavorite for Blue Ocean v1.1.0 failed to load.
+ - Pipeline: Job v2.11.1 is older than required. To fix, install v2.14.1 or later.
+	at hudson.PluginWrapper.resolvePluginDependencies(PluginWrapper.java:626)
+	at hudson.PluginManager$2$1$1.run(PluginManager.java:516)
+	at org.jvnet.hudson.reactor.TaskGraphBuilder$TaskImpl.run(TaskGraphBuilder.java:169)
+	at org.jvnet.hudson.reactor.Reactor.runTask(Reactor.java:282)
+	at jenkins.model.Jenkins$7.runTask(Jenkins.java:1090)
+	at org.jvnet.hudson.reactor.Reactor$2.run(Reactor.java:210)
+	at org.jvnet.hudson.reactor.Reactor$Node.run(Reactor.java:117)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Nov 19, 2017 11:18:14 AM jenkins.InitReactorRunner$1 onTaskFailed
+SEVERE: Failed Loading plugin Blue Ocean v1.3.3 (blueocean)
+java.io.IOException: Blue Ocean v1.3.3 failed to load.
+ - Autofavorite for Blue Ocean v1.1.0 failed to load. Fix this plugin first.
+	at hudson.PluginWrapper.resolvePluginDependencies(PluginWrapper.java:626)
+	at hudson.PluginManager$2$1$1.run(PluginManager.java:516)
+	at org.jvnet.hudson.reactor.TaskGraphBuilder$TaskImpl.run(TaskGraphBuilder.java:169)
+	at org.jvnet.hudson.reactor.Reactor.runTask(Reactor.java:282)
+	at jenkins.model.Jenkins$7.runTask(Jenkins.java:1090)
+	at org.jvnet.hudson.reactor.Reactor$2.run(Reactor.java:210)
+	at org.jvnet.hudson.reactor.Reactor$Node.run(Reactor.java:117)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Nov 19, 2017 11:18:18 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Prepared all plugins
+Nov 19, 2017 11:18:18 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Started all plugins
+Nov 19, 2017 11:18:20 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Augmented all extensions
+Nov 19, 2017 11:18:20 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Loaded all jobs
+Nov 19, 2017 11:18:20 AM jenkins.util.groovy.GroovyHookScript execute
+INFO: Executing /var/jenkins_home/init.groovy.d/tcp-slave-agent-port.groovy
+Nov 19, 2017 11:18:20 AM hudson.model.AsyncPeriodicWork$1 run
+INFO: Started Download metadata
+Nov 19, 2017 11:18:21 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Completed initialization
+Nov 19, 2017 11:18:21 AM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.web.context.support.StaticWebApplicationContext@1c2156bc: display name [Root WebApplicationContext]; startup date [Sun Nov 19 11:18:21 GMT 2017]; root of context hierarchy
+Nov 19, 2017 11:18:21 AM org.springframework.context.support.AbstractApplicationContext obtainFreshBeanFactory
+INFO: Bean factory for application context [org.springframework.web.context.support.StaticWebApplicationContext@1c2156bc]: org.springframework.beans.factory.support.DefaultListableBeanFactory@197d65
+Nov 19, 2017 11:18:21 AM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@197d65: defining beans [authenticationManager]; root of factory hierarchy
+Nov 19, 2017 11:18:21 AM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.web.context.support.StaticWebApplicationContext@7269e6df: display name [Root WebApplicationContext]; startup date [Sun Nov 19 11:18:21 GMT 2017]; root of context hierarchy
+Nov 19, 2017 11:18:21 AM org.springframework.context.support.AbstractApplicationContext obtainFreshBeanFactory
+INFO: Bean factory for application context [org.springframework.web.context.support.StaticWebApplicationContext@7269e6df]: org.springframework.beans.factory.support.DefaultListableBeanFactory@410cc55c
+Nov 19, 2017 11:18:21 AM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@410cc55c: defining beans [filter,legacy]; root of factory hierarchy
+Nov 19, 2017 11:18:21 AM jenkins.install.SetupWizard init
+INFO: 
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+f0d7b3ac1fd74c90949418141ebfb7d6
+
+This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+--> setting agent port for jnlp
+--> setting agent port for jnlp... done
+Nov 19, 2017 11:18:37 AM hudson.model.UpdateSite updateData
+INFO: Obtained the latest update center data file for UpdateSource default
+Nov 19, 2017 11:18:37 AM hudson.model.DownloadService$Downloadable load
+INFO: Obtained the updated data file for hudson.tasks.Maven.MavenInstaller
+Nov 19, 2017 11:18:37 AM hudson.model.UpdateSite updateData
+INFO: Obtained the latest update center data file for UpdateSource default
+Nov 19, 2017 11:18:37 AM hudson.WebAppMain$3 run
+INFO: Jenkins is fully up and running
+Nov 19, 2017 11:18:39 AM hudson.model.DownloadService$Downloadable load
+INFO: Obtained the updated data file for hudson.tools.JDKInstaller
+Nov 19, 2017 11:18:39 AM hudson.model.AsyncPeriodicWork$1 run
+INFO: Finished Download metadata. 19,331 ms
+Nov 19, 2017 11:20:11 AM winstone.Logger logInternal
+INFO: JVM is terminating. Shutting down Winstone
+Running from: /usr/share/jenkins/jenkins.war
+Nov 19, 2017 11:20:41 AM Main deleteWinstoneTempContents
+WARNING: Failed to delete the temporary Winstone file /tmp/winstone/jenkins.war
+Nov 19, 2017 11:20:41 AM org.eclipse.jetty.util.log.Log initialized
+INFO: Logging initialized @386ms to org.eclipse.jetty.util.log.JavaUtilLog
+Nov 19, 2017 11:20:41 AM winstone.Logger logInternal
+INFO: Beginning extraction from war file
+Nov 19, 2017 11:20:42 AM org.eclipse.jetty.server.handler.ContextHandler setContextPath
+WARNING: Empty contextPath
+Nov 19, 2017 11:20:42 AM org.eclipse.jetty.server.Server doStart
+INFO: jetty-9.4.z-SNAPSHOT
+Nov 19, 2017 11:20:43 AM org.eclipse.jetty.webapp.StandardDescriptorProcessor visitServlet
+INFO: NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+Nov 19, 2017 11:20:43 AM org.eclipse.jetty.server.session.DefaultSessionIdManager doStart
+INFO: DefaultSessionIdManager workerName=node0
+Nov 19, 2017 11:20:43 AM org.eclipse.jetty.server.session.DefaultSessionIdManager doStart
+INFO: No SessionScavenger set, using defaults
+Nov 19, 2017 11:20:43 AM org.eclipse.jetty.server.session.HouseKeeper startScavenging
+INFO: Scavenging every 660000ms
+Jenkins home directory: /var/jenkins_home found at: EnvVars.masterEnvVars.get("JENKINS_HOME")
+Nov 19, 2017 11:20:43 AM org.eclipse.jetty.server.handler.ContextHandler doStart
+INFO: Started w.@7651218e{/,file:///var/cache/jenkins/war/,AVAILABLE}{/var/cache/jenkins/war}
+Nov 19, 2017 11:20:43 AM org.eclipse.jetty.server.AbstractConnector doStart
+INFO: Started ServerConnector@757d6814{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+Nov 19, 2017 11:20:43 AM org.eclipse.jetty.server.Server doStart
+INFO: Started @2614ms
+Nov 19, 2017 11:20:43 AM winstone.Logger logInternal
+INFO: Winstone Servlet Engine v4.0 running: controlPort=disabled
+Nov 19, 2017 11:20:44 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Started initialization
+Nov 19, 2017 11:20:44 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Listed all plugins
+Nov 19, 2017 11:20:44 AM jenkins.InitReactorRunner$1 onTaskFailed
+SEVERE: Failed Loading plugin Autofavorite for Blue Ocean v1.1.0 (blueocean-autofavorite)
+java.io.IOException: Autofavorite for Blue Ocean v1.1.0 failed to load.
+ - Pipeline: Job v2.11.1 is older than required. To fix, install v2.14.1 or later.
+	at hudson.PluginWrapper.resolvePluginDependencies(PluginWrapper.java:626)
+	at hudson.PluginManager$2$1$1.run(PluginManager.java:516)
+	at org.jvnet.hudson.reactor.TaskGraphBuilder$TaskImpl.run(TaskGraphBuilder.java:169)
+	at org.jvnet.hudson.reactor.Reactor.runTask(Reactor.java:282)
+	at jenkins.model.Jenkins$7.runTask(Jenkins.java:1090)
+	at org.jvnet.hudson.reactor.Reactor$2.run(Reactor.java:210)
+	at org.jvnet.hudson.reactor.Reactor$Node.run(Reactor.java:117)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Nov 19, 2017 11:20:44 AM jenkins.InitReactorRunner$1 onTaskFailed
+SEVERE: Failed Loading plugin Blue Ocean v1.3.3 (blueocean)
+java.io.IOException: Blue Ocean v1.3.3 failed to load.
+ - Autofavorite for Blue Ocean v1.1.0 failed to load. Fix this plugin first.
+	at hudson.PluginWrapper.resolvePluginDependencies(PluginWrapper.java:626)
+	at hudson.PluginManager$2$1$1.run(PluginManager.java:516)
+	at org.jvnet.hudson.reactor.TaskGraphBuilder$TaskImpl.run(TaskGraphBuilder.java:169)
+	at org.jvnet.hudson.reactor.Reactor.runTask(Reactor.java:282)
+	at jenkins.model.Jenkins$7.runTask(Jenkins.java:1090)
+	at org.jvnet.hudson.reactor.Reactor$2.run(Reactor.java:210)
+	at org.jvnet.hudson.reactor.Reactor$Node.run(Reactor.java:117)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Nov 19, 2017 11:20:49 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Prepared all plugins
+Nov 19, 2017 11:20:49 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Started all plugins
+Nov 19, 2017 11:20:50 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Augmented all extensions
+Nov 19, 2017 11:20:50 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Loaded all jobs
+Nov 19, 2017 11:20:50 AM jenkins.util.groovy.GroovyHookScript execute
+INFO: Executing /var/jenkins_home/init.groovy.d/tcp-slave-agent-port.groovy
+Nov 19, 2017 11:20:50 AM hudson.model.AsyncPeriodicWork$1 run
+INFO: Started Download metadata
+Nov 19, 2017 11:20:50 AM hudson.model.AsyncPeriodicWork$1 run
+INFO: Finished Download metadata. 5 ms
+Nov 19, 2017 11:20:51 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Completed initialization
+Nov 19, 2017 11:20:51 AM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.web.context.support.StaticWebApplicationContext@4b55f286: display name [Root WebApplicationContext]; startup date [Sun Nov 19 11:20:51 GMT 2017]; root of context hierarchy
+Nov 19, 2017 11:20:51 AM org.springframework.context.support.AbstractApplicationContext obtainFreshBeanFactory
+INFO: Bean factory for application context [org.springframework.web.context.support.StaticWebApplicationContext@4b55f286]: org.springframework.beans.factory.support.DefaultListableBeanFactory@33eeff
+Nov 19, 2017 11:20:51 AM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@33eeff: defining beans [authenticationManager]; root of factory hierarchy
+Nov 19, 2017 11:20:51 AM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.web.context.support.StaticWebApplicationContext@15b68c5a: display name [Root WebApplicationContext]; startup date [Sun Nov 19 11:20:51 GMT 2017]; root of context hierarchy
+Nov 19, 2017 11:20:51 AM org.springframework.context.support.AbstractApplicationContext obtainFreshBeanFactory
+INFO: Bean factory for application context [org.springframework.web.context.support.StaticWebApplicationContext@15b68c5a]: org.springframework.beans.factory.support.DefaultListableBeanFactory@7e490c5
+Nov 19, 2017 11:20:51 AM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@7e490c5: defining beans [filter,legacy]; root of factory hierarchy
+Nov 19, 2017 11:20:51 AM jenkins.install.SetupWizard init
+INFO: 
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+f0d7b3ac1fd74c90949418141ebfb7d6
+
+This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+Nov 19, 2017 11:20:53 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: Found invalid crumb ecc79d8df0f3d9a6c88b3590674cafd1.  Will check remaining parameters for a valid one...
+Nov 19, 2017 11:20:53 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: No valid crumb was included in request for /ajaxExecutors. Returning 403.
+Nov 19, 2017 11:20:53 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: Found invalid crumb ecc79d8df0f3d9a6c88b3590674cafd1.  Will check remaining parameters for a valid one...
+Nov 19, 2017 11:20:53 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: No valid crumb was included in request for /ajaxBuildQueue. Returning 403.
+Nov 19, 2017 11:20:58 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: Found invalid crumb ecc79d8df0f3d9a6c88b3590674cafd1.  Will check remaining parameters for a valid one...
+Nov 19, 2017 11:20:58 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: No valid crumb was included in request for /ajaxExecutors. Returning 403.
+Nov 19, 2017 11:20:58 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: Found invalid crumb ecc79d8df0f3d9a6c88b3590674cafd1.  Will check remaining parameters for a valid one...
+Nov 19, 2017 11:20:58 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: No valid crumb was included in request for /ajaxBuildQueue. Returning 403.
+--> setting agent port for jnlp
+--> setting agent port for jnlp... done
+Nov 19, 2017 11:21:03 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: Found invalid crumb ecc79d8df0f3d9a6c88b3590674cafd1.  Will check remaining parameters for a valid one...
+Nov 19, 2017 11:21:03 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: Found invalid crumb ecc79d8df0f3d9a6c88b3590674cafd1.  Will check remaining parameters for a valid one...
+Nov 19, 2017 11:21:03 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: No valid crumb was included in request for /ajaxExecutors. Returning 403.
+Nov 19, 2017 11:21:03 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: No valid crumb was included in request for /ajaxBuildQueue. Returning 403.
+Nov 19, 2017 11:21:07 AM hudson.model.UpdateSite updateData
+INFO: Obtained the latest update center data file for UpdateSource default
+Nov 19, 2017 11:21:07 AM hudson.WebAppMain$3 run
+INFO: Jenkins is fully up and running
+Nov 19, 2017 11:21:08 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: Found invalid crumb ecc79d8df0f3d9a6c88b3590674cafd1.  Will check remaining parameters for a valid one...
+Nov 19, 2017 11:21:08 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: Found invalid crumb ecc79d8df0f3d9a6c88b3590674cafd1.  Will check remaining parameters for a valid one...
+Nov 19, 2017 11:21:08 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: No valid crumb was included in request for /ajaxBuildQueue. Returning 403.
+Nov 19, 2017 11:21:08 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: No valid crumb was included in request for /ajaxExecutors. Returning 403.
+Nov 19, 2017 11:21:13 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: Found invalid crumb ecc79d8df0f3d9a6c88b3590674cafd1.  Will check remaining parameters for a valid one...
+Nov 19, 2017 11:21:13 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: Found invalid crumb ecc79d8df0f3d9a6c88b3590674cafd1.  Will check remaining parameters for a valid one...
+Nov 19, 2017 11:21:13 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: No valid crumb was included in request for /ajaxBuildQueue. Returning 403.
+Nov 19, 2017 11:21:13 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: No valid crumb was included in request for /ajaxExecutors. Returning 403.
+Nov 19, 2017 11:21:18 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: Found invalid crumb ecc79d8df0f3d9a6c88b3590674cafd1.  Will check remaining parameters for a valid one...
+Nov 19, 2017 11:21:18 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: No valid crumb was included in request for /ajaxExecutors. Returning 403.
+Nov 19, 2017 11:21:18 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: Found invalid crumb ecc79d8df0f3d9a6c88b3590674cafd1.  Will check remaining parameters for a valid one...
+Nov 19, 2017 11:21:18 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: No valid crumb was included in request for /ajaxBuildQueue. Returning 403.
+Nov 19, 2017 11:21:23 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: Found invalid crumb ecc79d8df0f3d9a6c88b3590674cafd1.  Will check remaining parameters for a valid one...
+Nov 19, 2017 11:21:23 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: No valid crumb was included in request for /ajaxBuildQueue. Returning 403.
+Nov 19, 2017 11:21:23 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: Found invalid crumb ecc79d8df0f3d9a6c88b3590674cafd1.  Will check remaining parameters for a valid one...
+Nov 19, 2017 11:21:23 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: No valid crumb was included in request for /ajaxExecutors. Returning 403.
+Nov 19, 2017 11:21:28 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: Found invalid crumb ecc79d8df0f3d9a6c88b3590674cafd1.  Will check remaining parameters for a valid one...
+Nov 19, 2017 11:21:28 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: No valid crumb was included in request for /ajaxBuildQueue. Returning 403.
+Nov 19, 2017 11:21:28 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: Found invalid crumb ecc79d8df0f3d9a6c88b3590674cafd1.  Will check remaining parameters for a valid one...
+Nov 19, 2017 11:21:28 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: No valid crumb was included in request for /ajaxExecutors. Returning 403.
+Nov 19, 2017 11:21:33 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: Found invalid crumb ecc79d8df0f3d9a6c88b3590674cafd1.  Will check remaining parameters for a valid one...
+Nov 19, 2017 11:21:33 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: No valid crumb was included in request for /ajaxBuildQueue. Returning 403.
+Nov 19, 2017 11:21:33 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: Found invalid crumb ecc79d8df0f3d9a6c88b3590674cafd1.  Will check remaining parameters for a valid one...
+Nov 19, 2017 11:21:33 AM hudson.security.csrf.CrumbFilter doFilter
+WARNING: No valid crumb was included in request for /ajaxExecutors. Returning 403.

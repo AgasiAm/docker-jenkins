@@ -1,0 +1,25 @@
+jenkinsdata:
+ build: jenkins-data
+jenkinsmaster:
+ build: jenkins-master2
+ volumes_from:
+  - jenkinsdata
+ volumes:
+  - /var/run/docker.sock:/var/run/docker.sock 
+  - /home/jenkins/:/home/jenkins/
+ ports:
+  - "50000:50000"
+jenkinsnginx:
+ build: jenkins-nginx
+ ports:
+  - "80:80"
+ links:
+  - jenkinsmaster:jenkins-master2
+jenkinsslave:
+  build: jenkins-slave
+jenkinselasticsearch:
+  build: jenkins-elasticsearch
+  ports:
+   - "9200:9200"
+  volumes:
+   - /usr/share/elasticsearch/data:/usr/share/elasticsearch/data
