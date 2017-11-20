@@ -9,6 +9,8 @@ jenkinsmaster:
   - /home/jenkins/:/home/jenkins/
  ports:
   - "50000:50000"
+ links:
+  - jenkinsrabbitmq:jenkins-rabbitmq
 jenkinsnginx:
  build: jenkins-nginx
  ports:
@@ -29,3 +31,12 @@ jenkinspython:
    - "5000:5000"
   links:
    - jenkinselasticsearch:jenkins-elasticsearch
+jenkinsrabbitmq:
+  build: jenkins-rabbitmq
+  ports:
+   - "81:15672"
+   - "5672:5672"
+jenkinssendmail:
+  build: jenkins-sendmail
+  links:
+   - jenkinsrabbitmq:jenkins-rabbitmq
