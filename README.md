@@ -30,14 +30,14 @@ Deployment Steps
 		 MQ URI 		- amqp://jenkins-rabbitmq
 		 user			- guest
 		 password		- guest (you can change it for security reason)
-		 Exchange Name	- jenkins
-		 Routing Key	- buildjenkins
+		 Exchange Name		- jenkins
+		 Routing Key		- buildjenkins
 		
 	Global Tool Configuration
 	
 		Logstash Plugin
 		
-		Indexer type	- ELASTICSEARCH
+		Indexer type		- ELASTICSEARCH
 		Host name		- http://jenkins-elasticsearch
 		Port			- 9200
 		Key				- logstash/maven
@@ -50,7 +50,7 @@ Deployment Steps
 14. Configure job 
 		
 		Definition		- Pipeline script from SCM
-		SCM				- GIT
-		Repository URL	- Point to local Repository cloned on step 6 (/home/jenkins etc.)
+		SCM			- GIT
+		Repository URL		- Point to local Repository cloned on step 6 (/home/jenkins/imple-java-maven-app)
 		
 15. Run Pipeline job
