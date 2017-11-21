@@ -11,6 +11,7 @@ jenkinsmaster:
   - "50000:50000"
  links:
   - jenkinsrabbitmq:jenkins-rabbitmq
+  - jenkinselasticsearch:jenkins-elasticsearch
 jenkinsnginx:
  build: jenkins-nginx
  ports:

@@ -2,3 +2,8 @@ jclouds-jenkins
 token-macro
 durable-task
 docker-plugin
+matrix-project
+structs
+junit
+logstash
+mq-notifier
