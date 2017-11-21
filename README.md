@@ -40,7 +40,7 @@ Deployment Steps
 		Indexer type		- ELASTICSEARCH
 		Host name		- http://jenkins-elasticsearch
 		Port			- 9200
-		Key				- logstash/maven
+		Key			- logstash/maven
 		
 		
 12. Create new job -> Pipeline
