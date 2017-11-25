@@ -13,7 +13,6 @@ def send_mail(msgbody):
   msg['Subject'] = 'From Jenkins status of %r' % subject
   message=msgbody
   msg.attach(MIMEText(message))
-  msg.attach(MIMEText(message))
 
   mailServer = smtplib.SMTP('lsoft.am')
   mailServer.ehlo()
