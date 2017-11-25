@@ -2,48 +2,72 @@
 from flask import Flask
 from elasticsearch import Elasticsearch
 from flask import jsonify
+from flask import render_template
+from flask import request
 #import json
 
 app = Flask(__name__)
 
 
-@app.route('/')
-def welcome():
-	str='You can search job log by id or datetime<br/><br/>If you want to search by id just type http://host:5000/yourprojectname/id/(type here jobid)<br/><br/>Otherwise, type http://host:5000/yourprojectname/date/jobdate/(type here jobid build time), date format YYYY-MM-DDTHH:MI<br/><br/>Thank you!'
-	return str
 
-@app.route('/<string:projectname>/id/<int:id>')
-def search_byid(projectname,id):
-        es = Elasticsearch([{'host': 'jenkins-elasticsearch', 'port': 9200}])
-	a=es.search(index='logstash',body={
-					"query": {
-						"bool": {
+@app.route('/')
+def get_name_and_id():
+    return render_template('form.html')
+
+
+@app.route('/', methods=['POST'])
+def search_byid():
+
+    jobname=request.form['jobname']
+    jobid=request.form['jobid']
+    jobdate=request.form['jobdate']
+
+    es = Elasticsearch([{'host': 'jenkins-elasticsearch', 'port': 9200}])
+    if jobname:
+        if not jobid and not jobdate:
+           return "PLEASE, ENTER JOB ID OR JOB DATE AND RETRY"
+        if jobid and not jobdate:
+            result=es.search(index='logstash',body={
+   					 "query": {
+					  	"bool": {
 							"must": [
-								{ "match_phrase_prefix": { "data.buildNum":   id }},
-								{ "match_phrase_prefix": { "data.projectName":   projectname }}
+								{ "match_phrase_prefix": { "data.buildNum":   jobid }},
+								{ "match_phrase_prefix": { "data.projectName":   jobname }}
 								],
+
 							}
 						}
 					   })
-#        b=json.dumps(a,sort_keys=True, indent=5)
-        return jsonify(a)
-
-@app.route('/<string:projectname>/date/<datetime>')
-def search_bydatetime(projectname,datetime):
-        es = Elasticsearch([{'host': 'jenkins-elasticsearch', 'port': 9200}])
-        a=es.search(index='logstash',body={
+        elif not jobid and jobdate:
+           result=es.search(index='logstash',body={
                                         "query": {
                                                 "bool": {
                                                         "must": [
-                                                                { "match_phrase_prefix": { "@buildTimestamp":   datetime }},
-								{ "match_phrase_prefix": { "data.projectName":   projectname }}
+                                                                { "match_phrase_prefix": { "@buildTimestamp":   jobdate }},
+                                                                { "match_phrase_prefix": { "data.projectName":   jobname }}
                                                                 ],
                                                         }
                                                 }
                                            })
-        return jsonify(a)
+        else:
+           result=es.search(index='logstash',body={
+                                         "query": {
+                                                "bool": {
+                                                        "must": [
+								{ "match_phrase_prefix": { "@buildTimestamp":   jobdate }},
+                                                                { "match_phrase_prefix": { "data.buildNum":   jobid }},
+                                                                { "match_phrase_prefix": { "data.projectName":   jobname }}
+                                                                ],
+
+                                                        }
+                                                }
+                                           })
+    else:
+     return "PLEASE, ENTER PROJECT NAME AND JOB ID AND/OR JOB DATE AND RETRY"
 
 
+#        b=json.dumps(a,sort_keys=True, indent=5)
+    return jsonify(result)
 
 
 if __name__ == '__main__':
