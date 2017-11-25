@@ -4,7 +4,7 @@ from elasticsearch import Elasticsearch
 from flask import jsonify
 from flask import render_template
 from flask import request
-#import json
+import json
 
 app = Flask(__name__)
 
@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def get_name_and_id():
-    return render_template('form.html')
+    return render_template('form.html',string='')
 
 
 @app.route('/', methods=['POST'])
@@ -66,9 +66,9 @@ def search_byid():
      return "PLEASE, ENTER PROJECT NAME AND JOB ID AND/OR JOB DATE AND RETRY"
 
 
-#        b=json.dumps(a,sort_keys=True, indent=5)
-    return jsonify(result)
-
+    result_filtred=result['hits']['hits']
+    response = json.dumps(result_filtred, sort_keys = True, indent = 4, separators = (',', ': '))
+    return render_template('form.html',string=response)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
