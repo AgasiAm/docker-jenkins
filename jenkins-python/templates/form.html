@@ -1,15 +1,22 @@
 <!doctype html>
+<html lang="en">
 <form method="POST">
   PROJECT NAME:<br>
-    <input name="jobname"><br>
+    <input name="jobname" value={{ jobname }}><br>
   PROJECT JOB ID:<br>
-    <input name="jobid"><br>
+    <input name="jobid" value={{ jobid }}><br>
   PROJECT JOB EXEC TIME (YYYY-MM-DDTHH:MI):<br>
-    <input name="jobdate"><br>
-    <input type="submit">
+    <input name="jobdate" value={{ jobdate }}><br>
+  STAGE N:<br>
+    <input type="number" name="stage" value={{ stage }}><br>
+    <input type="submit" name="submit" value="get">
+    <input type="submit" name="submit" value="back">
+    <input type="submit" name="submit" value="next">
 </form>
   <body>
-   <pre> {{string }} </pre>
+    <br><br>DATA:<br><br>
+   <pre> {{ data }} </pre><br><br>
+    <br><br>MESSAGE<br><br>
+   <pre> {{ msg }} </pre><br><br>
   </body>
-
-</form>
+</html>

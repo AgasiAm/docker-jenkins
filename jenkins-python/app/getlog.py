@@ -9,6 +9,7 @@ import json
 app = Flask(__name__)
 
 
+# First Page
 
 @app.route('/')
 def get_name_and_id():
@@ -16,20 +17,29 @@ def get_name_and_id():
 
 
 @app.route('/', methods=['POST'])
-def search_byid():
+def search():
+
+# Get Vars From HTML Page
 
     jobname=request.form['jobname']
     jobid=request.form['jobid']
     jobdate=request.form['jobdate']
+    action=request.form['submit']
+    stage=request.form.get('stage',type=int)
+    response_message=[]
+    response_data=[]
+
+    
+# Connect to elasticsearch and query data
 
     es = Elasticsearch([{'host': 'jenkins-elasticsearch', 'port': 9200}])
     if jobname:
         if not jobid and not jobdate:
-           return "PLEASE, ENTER JOB ID OR JOB DATE AND RETRY"
+           return render_template('form.html',data="PLEASE, ENTER JOB ID OR JOB DATE AND RETRY")
         if jobid and not jobdate:
             result=es.search(index='logstash',body={
-   					 "query": {
-					  	"bool": {
+				   	 "query": {
+		  				"bool": {
 							"must": [
 								{ "match_phrase_prefix": { "data.buildNum":   jobid }},
 								{ "match_phrase_prefix": { "data.projectName":   jobname }}
@@ -39,7 +49,7 @@ def search_byid():
 						}
 					   })
         elif not jobid and jobdate:
-           result=es.search(index='logstash',body={
+               result=es.search(index='logstash',body={
                                         "query": {
                                                 "bool": {
                                                         "must": [
@@ -50,7 +60,7 @@ def search_byid():
                                                 }
                                            })
         else:
-           result=es.search(index='logstash',body={
+               result=es.search(index='logstash',body={
                                          "query": {
                                                 "bool": {
                                                         "must": [
@@ -63,12 +73,38 @@ def search_byid():
                                                 }
                                            })
     else:
-     return "PLEASE, ENTER PROJECT NAME AND JOB ID AND/OR JOB DATE AND RETRY"
+     return render_template('form.html',data="PLEASE, ENTER PROJECT NAME AND JOB ID AND/OR JOB DATE AND RETRY")
 
 
-    result_filtred=result['hits']['hits']
-    response = json.dumps(result_filtred, sort_keys = True, indent = 4, separators = (',', ': '))
-    return render_template('form.html',string=response)
+# Next and Back Buttons
+
+    if not stage:
+        stage=0
+ 
+
+    if action == 'get':
+        stage=0
+    elif action == 'next':
+        stage=stage+1
+    elif action == 'back' and stage > 0:
+        stage=stage-1
+    
+
+# Data Output
+
+    for result_filtred in result['hits']['hits']:
+        response_message.append(result_filtred['_source']['message'])
+        response_data.append(result_filtred['_source']['data'])
+
+    if stage > len(response_data):
+        stage=None
+
+    try:
+      return render_template('form.html',data=json.dumps(response_data[stage], sort_keys = True, indent = 4, separators = (',', ': ')),msg=json.dumps(response_message[stage], sort_keys = True, indent = 4, separators = (',', ': ')),jobname=jobname,jobid=jobid,jobdate=jobdate,stage=stage)
+    except:
+      return render_template('form.html',data="No data found",jobname=jobname,jobid=jobid,jobdate=jobdate)
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
