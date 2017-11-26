@@ -52,5 +52,7 @@ Deployment Steps
 		Definition		- Pipeline script from SCM
 		SCM			- GIT
 		Repository URL		- Point to local Repository cloned on step 6 (/home/jenkins/imple-java-maven-app)
+
+15. chmod 777 /var/run/docker.sock
 		
-15. Run Pipeline job
+16. Run Pipeline job
